@@ -2,7 +2,7 @@ from pptx import Presentation
 import subprocess as sp
 print("Enter Text to be Searched")
 search = input()
-print("Search Results ...\n\n")
+print("\nSearch Results ...\n\n")
 output = sp.getoutput('ls ppts/*.pptx')
 pptx_ls = output.split('\n')
 p_buffer=[]
