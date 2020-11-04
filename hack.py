@@ -2,13 +2,12 @@ from pptx import Presentation
 import subprocess as sp
 print("Enter Text to be Searched")
 search = input()
-print("Search Results ...")
+print("Search Results ...\n\n")
 output = sp.getoutput('ls ppts/*.pptx')
 pptx_ls = output.split('\n')
 p_buffer=[]
+p_buffer.append(("File Name"," Slide Numbers"))
 max_len = 0
-print("File Name\t\t\t\t|\t Slide Numbers")
-print("--------------------------------------------------------------")
 for ppt_file in pptx_ls:
     prs = Presentation(ppt_file)
     num=0
@@ -38,11 +37,14 @@ for ppt_file in pptx_ls:
         p_buffer.append((ppt_file,out_slds))
         max_len = max(max_len,len(ppt_file))
 
-
+d = 0
 for buff in p_buffer:
     print(buff[0],end="")
     spaces = max_len - len(buff[0]) 
     for space in range(0,spaces):
         print(" ",end="")
     print("\t"+buff[1])
+    if d == 0:
+        d = 1
+        print("--------------------------------------------------------------")
 
