@@ -3,7 +3,7 @@ import subprocess as sp
 print("Enter Text to be Searched")
 search = input()
 print("Search Results ...")
-output = sp.getoutput('ls *.pptx')
+output = sp.getoutput('ls ppts/*.pptx')
 pptx_ls = output.split('\n')
 p_buffer=[]
 max_len = 0
